@@ -50,14 +50,14 @@ public class QuickSort {
         if (start >= end) {
             return;
         }
-        int pivot = arr[start];
         int left = start;
         int right = end;
+        int pivot = arr[start];
         while (left != right) {
-            while (left < right && arr[right] > pivot) {
+            while (right > left && arr[right] > pivot) {
                 right--;
             }
-            while (left < right && arr[left] <= pivot) {
+            while (right > left && arr[left] <= pivot) {
                 left++;
             }
             if (left < right) {
@@ -69,7 +69,7 @@ public class QuickSort {
         arr[start] = arr[right];
         arr[right] = pivot;
         quickSort2(arr, start, right - 1);
-        quickSort2(arr,right + 1, end);
+        quickSort2(arr,right + 1,end);
     }
 
 }

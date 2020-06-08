@@ -8,21 +8,26 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 5, 6, 12, 15, 17, 22, 28, 31, 46, 51, 72, 81};
-        int v = 17;
+        if (binarySearch(arr, 1)) {
+            System.out.println("exists");
+        }
+    }
+
+    public static boolean binarySearch(int[] arr, int val) {
         int low = 0;
         int high = arr.length - 1;
-        int mid;
+        int mid ;
         while (low <= high) {
             mid = (high - low) / 2 + low;
-            if (arr[mid] == v) {
-                System.out.println("value [" + v + "] index:" + mid);
-                break;
-            } else if (arr[mid] > v) {
+            if (arr[mid] == val) {
+                return true;
+            } else if (arr[mid] > val) {
                 high = mid - 1;
             }else{
                 low = mid + 1;
             }
         }
+        return false;
     }
 
 }
