@@ -34,19 +34,12 @@ public class ShellSort {
     public static void shellSort2(int[] arr) {
         for (int incr = arr.length / 2; incr > 0; incr /= 2) {
             for (int i = incr; i < arr.length; i++) {
-                /*int insertVal = arr[i];
-                int j = i - incr;
-                while (j > 0 && insertVal > arr[j]) {
-                    arr[j] = arr[j + incr];
-                    j -= incr;
-                }
-                arr[j + incr] = insertVal;*/
-                int j = i;
-                while (j - incr >= 0 && arr[j - incr] > arr[j]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j - incr];
-                    arr[j - incr] = temp;
-                    j -= incr;
+                int idx = i;
+                while (idx - incr >= 0 && arr[idx] < arr[idx - 1]) {
+                    int temp = arr[idx];
+                    arr[idx] = arr[idx - 1];
+                    arr[idx - 1] = temp;
+                    idx -= incr;
                 }
             }
         }
